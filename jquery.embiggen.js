@@ -2,7 +2,7 @@
  * jQuery Embiggen plugin
  *
  * Author: Cameron Skene
- * Description: Centers an image center to the screen with overlay behind.
+ * Description: jQuery Embiggen Plugin. Displays linked to images center to window.
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -14,7 +14,9 @@
     jQuery.fn.embiggen = function(options) {
 
         defaults = {
-            vertical: true
+            vertical: true,
+            bgcolor: "#191919",
+            opacity: "0.98"
         };
 
         var o = $.extend(defaults, options);
@@ -33,11 +35,11 @@
                                     "left": 0,
                                     "width": "100%",
                                     "height": $(window).height(),
-                                    "background-color": "#191919",
+                                    "background-color": o.bgcolor,
                                     "background-position": "50% 50%",
                                     "background-repeat": "no-repeat",
                                     "z-index": "100",
-                                    "opacity": "0.98"
+                                    "opacity": o.opacity
                                 },
                                 click: function() {
                                     $(this).next().remove();
@@ -45,7 +47,6 @@
                                 }
                             })
                             .appendTo("body")
-
 
             $(window).resize(function(){
                 $(overlay).css({

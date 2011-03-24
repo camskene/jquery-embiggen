@@ -3,24 +3,102 @@
     <head>
         <meta charset="utf-8" />
         <title>jQuery Embiggen</title>
+        
+        <!-- Sytaxhighlighter -->
+        <link type="text/css" rel="stylesheet" href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css"/>
+    	<link type="text/css" rel="stylesheet" href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css"/>
+        
+        <style type="text/css">
+        
+            /*
+            Styles layout this page. They have nothing to to with the embiggen plugin.
+            They have also been 'compressed'. Also I know embiggen isn't a real word. Ok? 
+            ______________________________________________________________________________
+            ****************************************************************************** */
+            body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444;}
+            #container{width:820px;margin:0 auto;}
+            #embiggen a{display:block;padding:5px;width:630px;margin:0 0 48px;background-color:#f3f3f3;background:-moz-linear-gradient(top,#DDDDDD 0%,#F3F3F3 100%);/* firefox */
+            background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#DDDDDD),color-stop(100%,#F3F3F3));/* webkit */}
+            img{vertical-align:text-bottom;}
+            code{font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;color:#000;}
+            hr{height:1px;line-height:0;border:0;background-color:#000;margin:3em 0}
+            .attribute {font-style: italic; color: #999;}
+        </style>
     </head>
     <body>
-        
-        <div id="embiggen">
-            <a href="img/lg/biy-home-001.jpg" title=""><img src="img/th/biy-home-001.jpg"></a><br />
-            <a href="img/lg/biy-about-001.jpg" title=""><img src="img/th/biy-about-001.jpg"></a><br />
-            <a href="img/lg/biy-home-008.jpg" title=""><img src="img/th/biy-home-008.jpg"></a><br />
-        </div><!-- #embiggen -->
-    
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-        
-        <script src="jquery.embiggen.min.js"></script>
-        
-        
-        <script>
+        <div id="container">
+            <h1>jQuery Embiggen Plugin</h1>
+            <p>The jQuery Embiggen plugin will display any linked image center to the window.
+            <p>A semi-transparent overlay is displayed behing the image.</p>
+            <p>A spinner is displayed while the image is loading.</p>
+            <p>If the image is larger than the viewport it will, by default, be scaled proportionally to fit.</p>
             
+            <hr />
+            
+            <h3>Options</h3>
+            <p>There are 3 options.</p>
+            <pre class="brush: xml">
+                    vertical: true,
+                    bgcolor: "#191919",
+                    opacity: "0.98"
+            </pre>
+            
+            <p>1. Set <code>vertical</code> to false to only scale the width of the image. This is handy if you have an image with a large height. The image is always scaled proportionally.</p>
+            
+            <p>2. Set <code>bgcolor</code> to desired overlay color.</p>
+            
+            <p>3. Set <code>opacity</code> to desired overlay opacity.</p>
+                    
+            <h3>HTML</h3>
+            <pre class="brush: xml">
+                &lt;a href=&quot;img/lg/biy-home-001.jpg&quot;&gt;
+                    &lt;img src=&quot;img/th/biy-home-001.jpg&quot; width=&quot;630&quot; height=&quot;492&quot; /&gt;
+                &lt;/a&gt;
+            </pre>
+            
+            <h3>JS</h3>
+            <pre class="brush: js">
+                $("#foo").embiggen();                
+            </pre>
+            <p>or</p>
+            <pre class="brush: js">
+                $("#foo").embiggen({
+                    vertical: true,
+                    bgcolor: "#191919",
+                    opacity: "0.98"
+                });                
+            </pre>
+            
+            <hr />
+            
+            <h3>Demo</h3>
+            <p>Click the images to embiggen them.</p>
+            <div id="embiggen">
+                <a href="img/lg/biy-home-008.jpg"><img src="img/th/biy-home-008.jpg" width="630" height="492" /></a>
+                <a href="img/lg/biy-about-001.jpg"><img src="img/th/biy-about-001.jpg" width="630" height="492" /></a>
+                <a href="img/lg/biy-home-001.jpg"><img src="img/th/biy-home-001.jpg" width="630" height="492" /></a>
+            </div><!-- #embiggen -->
+            
+            <hr />
+            <p class="attribute">The jQuery Embiggen plugin was brought to you by the letter <code>j</code> and the number <code>1.5</code>.</p>
+        </div><!-- #container -->
+        
+        <!-- load jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <!-- load embiggen plugin -->
+        <script src="jquery.embiggen.js"></script>
+        <!-- call embiggen -->
+        <script>
             $("#embiggen a").embiggen()
             
         </script>
+        
+        <!-- http://alexgorbatchev.com/SyntaxHighlighter -->
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+    	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js"></script>
+    	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
+    	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js"></script>
+    	
+        <script>SyntaxHighlighter.all();</script>
     </body>
 </html>
