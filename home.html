@@ -12,12 +12,12 @@
         
             /*
             Styles layout this page. They have nothing to to with the embiggen plugin.
-            They have also been 'compressed'. Also I know embiggen isn't a real word. Ok? 
+            They have also been 'compressed'. Also I know embiggen isn't a real word. 
             ______________________________________________________________________________
             ****************************************************************************** */
             body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444;}
             #container{width:820px;margin:0 auto;}
-            #embiggen a{display:block;padding:5px;width:630px;margin:0 0 48px;background-color:#f3f3f3;background:-moz-linear-gradient(top,#DDDDDD 0%,#F3F3F3 100%);/* firefox */
+            #default a, #options a{display:block;padding:5px;width:630px;margin:0 0 48px;background-color:#f3f3f3;background:-moz-linear-gradient(top,#DDDDDD 0%,#F3F3F3 100%);/* firefox */
             background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#DDDDDD),color-stop(100%,#F3F3F3));/* webkit */}
             img{vertical-align:text-bottom;}
             code{font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;color:#000;}
@@ -32,10 +32,11 @@
             <p>A semi-transparent overlay is displayed behing the image.</p>
             <p>A spinner is displayed while the image is loading.</p>
             <p>If the image is larger than the viewport it will, by default, be scaled proportionally to fit.</p>
+            <p>Clicking the embiggened image or overlay closes both.</p>
             
             <hr />
             
-            <h3>Options</h3>
+            <h2>Options</h2>
             <p>There are 3 options.</p>
             <pre class="brush: xml">
                     vertical: true,
@@ -43,26 +44,30 @@
                     opacity: "0.98"
             </pre>
             
-            <p>1. Set <code>vertical</code> to false to scale only the width of the image to the window. This is handy if you have an image with a large height. The image is always scaled proportionally.</p>
+            <ol>
+                <li>Set <code>vertical</code> to <code>false</code> to scale the width of the image only to the window. This is handy if you have an image with a large height. The image is always scaled proportionally.</li>
+                <li>Set <code>bgcolor</code> to desired overlay color.</li>
+                <li>Set <code>opacity</code> to desired overlay opacity.</li>
+            </ol>
             
-            <p>2. Set <code>bgcolor</code> to desired overlay color.</p>
+            <hr />
             
-            <p>3. Set <code>opacity</code> to desired overlay opacity.</p>
-                    
+            <h2>Setup</h2>
+            
             <h3>HTML</h3>
             <pre class="brush: xml">
                 &lt;a href=&quot;img/lg/biy-home-001.jpg&quot;&gt;
                     &lt;img src=&quot;img/th/biy-home-001.jpg&quot; width=&quot;630&quot; height=&quot;492&quot; /&gt;
                 &lt;/a&gt;
             </pre>
-            
+                        
             <h3>JS</h3>
             <pre class="brush: js">
-                $("#foo").embiggen();                
+                $("a").embiggen();                
             </pre>
             <p>or</p>
             <pre class="brush: js">
-                $("#foo").embiggen({
+                $("a").embiggen({
                     vertical: true,
                     bgcolor: "#191919",
                     opacity: "0.98"
@@ -71,16 +76,34 @@
             
             <hr />
             
-            <h3>Demo</h3>
-            <p>Click the images to embiggen them.</p>
-            <div id="embiggen">
+            <h2>Demo I</h2>
+            <pre class="brush: js">
+                $("a").embiggen();                
+            </pre>
+            
+            <div id="default">
                 <a href="img/lg/biy-home-008.jpg"><img src="img/th/biy-home-008.jpg" width="630" height="492" /></a>
                 <a href="img/lg/biy-about-001.jpg"><img src="img/th/biy-about-001.jpg" width="630" height="492" /></a>
                 <a href="img/lg/biy-home-001.jpg"><img src="img/th/biy-home-001.jpg" width="630" height="492" /></a>
-            </div><!-- #embiggen -->
+            </div><!-- #default -->
             
             <hr />
-            <p class="attribute">The jQuery Embiggen plugin was brought to you by the letter <code>j</code> and the number <code>1.5</code>.</p>
+            
+            <h2>Demo II</h2>
+            <pre class="brush: js">
+                $("a").embiggen({
+                    vertical: false
+                });                
+            </pre>
+            
+            <div id="options">
+                <a href="img/lg/biy-home-008.jpg"><img src="img/th/biy-home-008.jpg" width="630" height="492" /></a>
+            </div><!-- #default -->
+            
+            <hr />
+            
+            <p class="attribute">The jQuery Embiggen plugin was brought to you by the letter <code>j</code> and the number <code>5</code>.</p>
+            <p class="attribute">- Cameron Skene</p>
         </div><!-- #container -->
         
         <!-- load jQuery -->
@@ -89,8 +112,10 @@
         <script src="jquery.embiggen.js"></script>
         <!-- call embiggen -->
         <script>
-            $("#embiggen a").embiggen()
-            
+            $("#default a").embiggen()
+            $("#options a").embiggen({
+                vertical: false
+            })
         </script>
         
         <!-- http://alexgorbatchev.com/SyntaxHighlighter -->
