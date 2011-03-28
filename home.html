@@ -21,9 +21,9 @@
             #default a, #options a{float:left;display:block;margin:0 10px 48px;}
             img{vertical-align:text-bottom;}
             code{font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace !important;color:#000;}
-            hr{clear:both;margin: 3em 0}
+            hr{clear:both;margin: 4em 0}
             .attribute {font-style: italic; color: #999;}
-            .syntaxhighlighter {margin: 3em 0 !important;}
+            .syntaxhighlighter {margin: 2em 0 !important;}
         </style>
     </head>
     <body>
@@ -44,7 +44,7 @@
             
             <h3>Options</h3>
             <p>There are 3 options.</p>
-            <pre class="brush: xml">
+            <pre class="brush: js">
                     vertical: true,
                     bgcolor: "#191919",
                     opacity: "0.98"
@@ -136,7 +136,9 @@
     	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js"></script>
     	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
     	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js"></script>
-    	
+        <script>
+            SyntaxHighlighter.defaults['toolbar'] = false;
+        </script>
         <script>SyntaxHighlighter.all();</script>
     </body>
 </html>
